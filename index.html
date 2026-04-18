@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LLL POOP | Poop Pickup, Power Washing, Car Cleaning & Lights</title>
+  <meta
+    name="description"
+    content="LLL POOP handles dog poop pickup, driveway and house power washing, car cleaning, and Christmas light installation for busy homes and properties."
+  >
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Archivo+Black&display=swap"
+    rel="stylesheet"
+  >
+  <style>
+    :root {
+      --bg: #f4f0e7;
+      --surface: #fffaf1;
+      --ink: #14213d;
+      --muted: #49607d;
+      --accent: #f77f00;
+      --accent-deep: #d95d00;
+      --lime: #b8d94a;
+      --line: rgba(20, 33, 61, 0.12);
+      --shadow: 0 20px 60px rgba(20, 33, 61, 0.12);
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      margin: 0;
+      font-family: "Space Grotesk", sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at top left, rgba(184, 217, 74, 0.2), transparent 30%),
+        linear-gradient(180deg, #fcfbf7 0%, var(--bg) 55%, #efe8da 100%);
+    }
+
+    img {
+      width: 100%;
+      display: block;
+      object-fit: cover;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    .site-shell {
+      min-height: 100vh;
+    }
+
+    .hero {
+      padding: 1.5rem clamp(1.2rem, 3vw, 3rem) 3rem;
+    }
+
+    .nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 1rem 1.2rem;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: rgba(255, 250, 241, 0.72);
+      backdrop-filter: blur(12px);
+      position: sticky;
+      top: 1rem;
+      z-index: 10;
+    }
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.7rem;
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: 0.05em;
+    }
+
+    .brand-mark {
+      display: inline-grid;
+      place-items: center;
+      width: 2.5rem;
+      height: 2.5rem;
+      border-radius: 50%;
+      background: var(--accent);
+      color: white;
+      font-size: 0.95rem;
+    }
+
+    .brand-text {
+      font-size: 1.1rem;
+    }
+
+    .nav-links,
+    .footer-links {
+      display: flex;
+      align-items: center;
+      gap: 1.25rem;
+    }
+
+    .nav-links a,
+    .footer-links a {
+      color: var(--muted);
+    }
+
+    .nav-cta,
+    .button {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 999px;
+      font-weight: 700;
+      transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+    }
+
+    .nav-cta {
+      padding: 0.85rem 1.25rem;
+      background: var(--ink);
+      color: white;
+    }
+
+    .button {
+      padding: 1rem 1.5rem;
+    }
+
+    .button:hover,
+    .nav-cta:hover {
+      transform: translateY(-2px);
+    }
+
+    .button-primary {
+      background: var(--accent);
+      color: white;
+      box-shadow: 0 12px 30px rgba(247, 127, 0, 0.28);
+    }
+
+    .button-secondary {
+      border: 1px solid var(--line);
+      background: rgba(255, 255, 255, 0.75);
+    }
+
+    .button-full {
+      width: 100%;
+    }
+
+    .hero-grid,
+    .split-section,
+    .cta-section {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: clamp(1.5rem, 3vw, 3rem);
+      align-items: center;
+    }
+
+    .hero-grid {
+      padding-top: clamp(2.5rem, 7vw, 5rem);
+    }
+
+    .eyebrow {
+      text-transform: uppercase;
+      letter-spacing: 0.18em;
+      font-size: 0.8rem;
+      font-weight: 700;
+      color: var(--accent-deep);
+    }
+
+    h1,
+    h2,
+    h3 {
+      margin: 0;
+      line-height: 0.95;
+    }
+
+    h1,
+    h2 {
+      font-family: "Archivo Black", sans-serif;
+      text-transform: uppercase;
+    }
+
+    h1 {
+      font-size: clamp(3.1rem, 8vw, 6.4rem);
+      max-width: 10ch;
+    }
+
+    h2 {
+      font-size: clamp(2rem, 5vw, 3.8rem);
+      max-width: 13ch;
+    }
+
+    .hero-text,
+    .split-copy p,
+    .cta-copy p,
+    .service-card p,
+    .footer p,
+    .quote,
+    .quote-author,
+    .gallery-item figcaption {
+      color: var(--muted);
+      line-height: 1.65;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.9rem;
+      margin: 2rem 0;
+    }
+
+    .hero-stats {
+      list-style: none;
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.8rem;
+      padding: 0;
+      margin: 2rem 0 0;
+    }
+
+    .hero-stats li,
+    .service-card,
+    .testimonial-card,
+    .quote-form,
+    .gallery-item,
+    .hero-card-accent {
+      padding: 1.2rem;
+      border-radius: 1.5rem;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 241, 0.76);
+      box-shadow: var(--shadow);
+    }
+
+    .hero-stats strong {
+      display: block;
+      font-size: 1.4rem;
+      font-family: "Archivo Black", sans-serif;
+    }
+
+    .hero-stats span {
+      color: var(--muted);
+      font-size: 0.92rem;
+    }
+
+    .hero-visual {
+      position: relative;
+      min-height: 32rem;
+    }
+
+    .hero-card {
+      position: absolute;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card-main {
+      inset: 0 3rem 3rem 0;
+    }
+
+    .hero-card-main img,
+    .split-image img,
+    .gallery-item img {
+      height: 100%;
+    }
+
+    .hero-card-accent {
+      right: 0;
+      bottom: 0;
+      width: min(16rem, 45%);
+      background: linear-gradient(135deg, var(--lime), #f8ffcd);
+      transform: rotate(-4deg);
+    }
+
+    .hero-card-accent p {
+      margin: 0.4rem 0;
+      font-weight: 700;
+    }
+
+    .trust-bar {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 1rem;
+      padding: 1rem clamp(1.2rem, 3vw, 3rem);
+      margin-bottom: 1rem;
+    }
+
+    .trust-bar p {
+      margin: 0;
+      padding: 1rem 1.2rem;
+      border-top: 2px solid var(--ink);
+      font-weight: 700;
+    }
+
+    .section {
+      padding: clamp(3rem, 8vw, 6rem) clamp(1.2rem, 3vw, 3rem);
+    }
+
+    .section-heading {
+      display: grid;
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+
+    .service-grid,
+    .gallery-grid,
+    .testimonial-section {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .service-grid {
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+    }
+
+    .service-card h3 {
+      margin-top: 1rem;
+      margin-bottom: 0.8rem;
+      font-size: 1.3rem;
+    }
+
+    .service-card img {
+      height: 14rem;
+      border-radius: 1rem;
+    }
+
+    .split-section {
+      background: rgba(255, 255, 255, 0.38);
+    }
+
+    .feature-list {
+      display: grid;
+      gap: 1rem;
+      margin-top: 2rem;
+    }
+
+    .feature-list strong {
+      display: block;
+      margin-bottom: 0.35rem;
+    }
+
+    .split-image {
+      min-height: 32rem;
+      border-radius: 2rem;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .gallery-grid {
+      grid-template-columns: 1.2fr 1fr 1fr;
+      grid-auto-rows: minmax(15rem, 21rem);
+    }
+
+    .gallery-item {
+      overflow: hidden;
+      padding: 0;
+    }
+
+    .gallery-item.tall {
+      grid-row: span 2;
+    }
+
+    .gallery-item figcaption {
+      padding: 1rem 1rem 1.1rem;
+      background: rgba(255, 250, 241, 0.95);
+    }
+
+    .testimonial-section {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .testimonial-card {
+      min-height: 100%;
+    }
+
+    .testimonial-card.accent {
+      background: linear-gradient(135deg, #14213d, #203b63);
+    }
+
+    .testimonial-card.accent .quote,
+    .testimonial-card.accent .quote-author {
+      color: rgba(255, 255, 255, 0.88);
+    }
+
+    .quote {
+      font-size: 1.2rem;
+      margin: 0 0 1rem;
+    }
+
+    .quote-author {
+      margin: 0;
+      font-weight: 700;
+    }
+
+    .cta-section {
+      border-top: 1px solid var(--line);
+    }
+
+    .quote-form {
+      display: grid;
+      gap: 1rem;
+    }
+
+    .quote-form label {
+      display: grid;
+      gap: 0.45rem;
+      font-weight: 700;
+    }
+
+    .quote-form input,
+    .quote-form select,
+    .quote-form textarea {
+      width: 100%;
+      padding: 0.95rem 1rem;
+      border: 1px solid var(--line);
+      border-radius: 1rem;
+      font: inherit;
+      color: var(--ink);
+      background: white;
+    }
+
+    .footer {
+      display: flex;
+      justify-content: space-between;
+      gap: 1rem;
+      padding: 2rem clamp(1.2rem, 3vw, 3rem) 3rem;
+    }
+
+    .footer-brand {
+      font-family: "Archivo Black", sans-serif;
+      letter-spacing: 0.08em;
+    }
+
+    @media (max-width: 980px) {
+      .hero-grid,
+      .split-section,
+      .cta-section,
+      .service-grid,
+      .testimonial-section,
+      .gallery-grid,
+      .trust-bar {
+        grid-template-columns: 1fr;
+      }
+
+      .nav {
+        border-radius: 1.5rem;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .nav-links {
+        width: 100%;
+        justify-content: space-between;
+      }
+
+      .hero-visual {
+        min-height: 24rem;
+      }
+
+      .hero-card-main {
+        inset: 0 1rem 3rem 0;
+      }
+
+      .gallery-item.tall {
+        grid-row: span 1;
+      }
+
+      .footer {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 640px) {
+      .hero {
+        padding-top: 1rem;
+      }
+
+      .hero-stats {
+        grid-template-columns: 1fr;
+      }
+
+      h1 {
+        font-size: clamp(2.7rem, 15vw, 4rem);
+      }
+
+      .hero-card-accent {
+        width: 11rem;
+      }
+
+      .nav-links {
+        gap: 0.8rem;
+        font-size: 0.95rem;
+      }
+
+      .nav-cta,
+      .button {
+        width: 100%;
+      }
+    }
+  </style>
+</head>
+<body>
+  <div class="site-shell">
+    <header class="hero" id="top">
+      <nav class="nav">
+        <a class="brand" href="#top">
+          <span class="brand-mark">LLL</span>
+          <span class="brand-text">POOP</span>
+        </a>
+        <div class="nav-links">
+          <a href="#services">Services</a>
+          <a href="#results">Photos</a>
+          <a href="#contact">Contact</a>
+        </div>
+        <a class="nav-cta" href="tel:555-555-0199">Call Now</a>
+      </nav>
+
+      <section class="hero-grid">
+        <div class="hero-copy">
+          <p class="eyebrow">Outdoor Cleanup And Curb Appeal Services</p>
+          <h1>We clean the gross stuff so your place looks good.</h1>
+          <p class="hero-text">
+            LLL POOP helps homeowners stay ahead of messy yards, dirty driveways,
+            dusty cars, and holiday setup stress. We pick up dog poop, power wash
+            houses and concrete, clean vehicles, and hang Christmas lights so your
+            property stays sharp year-round.
+          </p>
+          <div class="hero-actions">
+            <a class="button button-primary" href="#contact">Get A Fast Quote</a>
+            <a class="button button-secondary" href="#services">See Services</a>
+          </div>
+          <ul class="hero-stats" aria-label="Business highlights">
+            <li><strong>4</strong><span>core services</span></li>
+            <li><strong>Fast</strong><span>scheduling and quotes</span></li>
+            <li><strong>Clean</strong><span>homes, yards, and vehicles</span></li>
+          </ul>
+        </div>
+
+        <div class="hero-visual">
+          <div class="hero-card hero-card-main">
+            <img
+              src="https://images.unsplash.com/photo-1513694203232-719a280e022f?auto=format&fit=crop&w=1400&q=80"
+              alt="Clean patio and outdoor home area"
+            >
+          </div>
+          <div class="hero-card hero-card-accent">
+            <p>Poop Pickup</p>
+            <p>Power Washing</p>
+            <p>Car Cleaning</p>
+            <p>Christmas Lights</p>
+          </div>
+        </div>
+      </section>
+    </header>
+
+    <main>
+      <section class="trust-bar">
+        <p>Weekly or one-time service</p>
+        <p>Homes, rentals, and small businesses</p>
+        <p>Cleanup that saves you time</p>
+      </section>
+
+      <section class="section services" id="services">
+        <div class="section-heading">
+          <p class="eyebrow">What We Do</p>
+          <h2>One business for the dirty jobs and seasonal setup.</h2>
+        </div>
+
+        <div class="service-grid">
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80"
+              alt="Dog outdoors in a yard"
+            >
+            <h3>Dog Poop Pickup</h3>
+            <p>We scoop yards, dog runs, and pet areas so you can enjoy the space without dodging a mess.</p>
+          </article>
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1200&q=80"
+              alt="Freshly cleaned residential walkway and driveway"
+            >
+            <h3>Driveway & House Power Washing</h3>
+            <p>Blast away grime from concrete, siding, patios, fences, and entryways to boost curb appeal fast.</p>
+          </article>
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+              alt="Clean car exterior in bright light"
+            >
+            <h3>Car Cleaning</h3>
+            <p>Keep your ride looking fresh with exterior cleanup that removes dirt, dust, and everyday buildup.</p>
+          </article>
+          <article class="service-card">
+            <img
+              src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?auto=format&fit=crop&w=1200&q=80"
+              alt="House decorated with Christmas lights at night"
+            >
+            <h3>Christmas Light Setup</h3>
+            <p>We help homes stand out for the holidays with clean, eye-catching light installation.</p>
+          </article>
+        </div>
+      </section>
+
+      <section class="section split-section">
+        <div class="split-copy">
+          <p class="eyebrow">About The Business</p>
+          <h2>Built for busy people who still want a clean-looking property.</h2>
+          <p>
+            LLL POOP is an all-in-one service business focused on the stuff most people
+            do not want to handle themselves. From pet waste pickup and driveway washing
+            to vehicle cleaning and holiday lights, we help your place look better without
+            you spending your weekend doing it.
+          </p>
+          <div class="feature-list">
+            <div>
+              <strong>Simple booking</strong>
+              <p>Reach out, tell us what you need, and get a straightforward quote.</p>
+            </div>
+            <div>
+              <strong>Useful year-round</strong>
+              <p>Routine poop pickup, deep exterior cleaning, and seasonal holiday installs.</p>
+            </div>
+            <div>
+              <strong>Visible results</strong>
+              <p>Cleaner yards, cleaner surfaces, cleaner vehicles, and a better first impression.</p>
+            </div>
+          </div>
+        </div>
+
+        <div class="split-image">
+          <img
+            src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80"
+            alt="Worker cleaning an outdoor surface"
+          >
+        </div>
+      </section>
+
+      <section class="section gallery" id="results">
+        <div class="section-heading">
+          <p class="eyebrow">Stock Photos</p>
+          <h2>Photos already injected into the site so it looks complete while you get real client shots.</h2>
+        </div>
+
+        <div class="gallery-grid">
+          <figure class="gallery-item tall">
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1200&q=80"
+              alt="Clean modern house exterior"
+            >
+            <figcaption>House washing and curb appeal energy</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1503376780353-7e6692767b70?auto=format&fit=crop&w=1200&q=80"
+              alt="Clean car parked outdoors"
+            >
+            <figcaption>Car cleaning service</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?auto=format&fit=crop&w=1200&q=80"
+              alt="Christmas lights on a home"
+            >
+            <figcaption>Holiday light installation</figcaption>
+          </figure>
+          <figure class="gallery-item">
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80"
+              alt="Dog in a backyard"
+            >
+            <figcaption>Pet yards and poop pickup routes</figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="section testimonial-section">
+        <div class="testimonial-card">
+          <p class="quote">
+            "These are the chores everybody puts off. We handle them so your property stays clean, usable, and presentable."
+          </p>
+          <p class="quote-author">LLL POOP Promise</p>
+        </div>
+        <div class="testimonial-card accent">
+          <p class="quote">
+            "Dog waste in the yard, grime on the driveway, a dirty car, or no time for lights? That's exactly where we come in."
+          </p>
+          <p class="quote-author">Services Overview</p>
+        </div>
+      </section>
+
+      <section class="section cta-section" id="contact">
+        <div class="cta-copy">
+          <p class="eyebrow">Get Started</p>
+          <h2>Need cleanup, washing, or holiday lights?</h2>
+          <p>
+            Call, text, or email for dog poop pickup, driveway or house washing,
+            car cleaning, or Christmas light setup. We can help with one job or
+            keep you on a repeat schedule.
+          </p>
+        </div>
+
+        <form class="quote-form">
+          <label>
+            Name
+            <input type="text" name="name" placeholder="Your name">
+          </label>
+          <label>
+            Phone
+            <input type="tel" name="phone" placeholder="(555) 555-0199">
+          </label>
+          <label>
+            Service Needed
+            <select name="serviceType">
+              <option>Dog poop pickup</option>
+              <option>Power washing</option>
+              <option>Car cleaning</option>
+              <option>Christmas lights</option>
+              <option>Multiple services</option>
+            </select>
+          </label>
+          <label>
+            Job details
+            <textarea name="details" rows="4" placeholder="Backyard cleanup, driveway wash, car detail, holiday light install..."></textarea>
+          </label>
+          <a class="button button-primary button-full" href="mailto:hello@lllpoop.com">Request Quote</a>
+        </form>
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div>
+        <p class="footer-brand">LLL POOP</p>
+        <p>Dog poop pickup, power washing, car cleaning, and Christmas light installation.</p>
+      </div>
+      <div class="footer-links">
+        <a href="tel:555-555-0199">(555) 555-0199</a>
+        <a href="mailto:hello@lllpoop.com">hello@lllpoop.com</a>
+        <a href="#top">Back to top</a>
+      </div>
+    </footer>
+  </div>
+
+</body>
+</html>
