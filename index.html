@@ -311,6 +311,7 @@
 
     .service-grid,
     .gallery-grid,
+    .social-grid,
     .testimonial-section {
       display: grid;
       gap: 1rem;
@@ -370,6 +371,67 @@
     .gallery-item figcaption {
       padding: 1rem 1rem 1.1rem;
       background: rgba(255, 250, 241, 0.95);
+    }
+
+    .social-grid {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+
+    .social-card {
+      overflow: hidden;
+      border-radius: 1.6rem;
+      border: 1px solid var(--line);
+      background: rgba(255, 250, 241, 0.86);
+      box-shadow: var(--shadow);
+    }
+
+    .social-card img {
+      height: 16rem;
+    }
+
+    .social-body {
+      padding: 1rem 1.1rem 1.2rem;
+    }
+
+    .social-head {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 0.75rem;
+      margin-bottom: 0.75rem;
+    }
+
+    .social-platform {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.45rem;
+      font-weight: 700;
+      color: var(--ink);
+    }
+
+    .social-platform::before {
+      content: "";
+      width: 0.8rem;
+      height: 0.8rem;
+      border-radius: 50%;
+      background: var(--accent);
+      box-shadow: 1rem 0 0 var(--lime);
+    }
+
+    .social-handle {
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .social-caption {
+      margin: 0 0 1rem;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    .social-link {
+      font-weight: 700;
+      color: var(--accent-deep);
     }
 
     .testimonial-section {
@@ -443,6 +505,7 @@
       .split-section,
       .cta-section,
       .service-grid,
+      .social-grid,
       .testimonial-section,
       .gallery-grid,
       .trust-bar {
@@ -645,8 +708,8 @@
 
       <section class="section gallery" id="results">
         <div class="section-heading">
-          <p class="eyebrow">Stock Photos</p>
-          <h2>Photos already injected into the site so it looks complete while you get real client shots.</h2>
+          <p class="eyebrow">Our Work</p>
+          <h2>Clean-looking results for homes, cars, yards, and holiday setups.</h2>
         </div>
 
         <div class="gallery-grid">
@@ -693,6 +756,66 @@
             "Dog waste in the yard, grime on the driveway, a dirty car, or no time for lights? That's exactly where we come in."
           </p>
           <p class="quote-author">Services Overview</p>
+        </div>
+      </section>
+
+      <section class="section social-section">
+        <div class="section-heading">
+          <p class="eyebrow">Social Proof</p>
+          <h2>A typical social media feed section for before-and-afters, yard cleanups, and holiday installs.</h2>
+        </div>
+
+        <div class="social-grid">
+          <article class="social-card">
+            <img
+              src="https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=1200&q=80"
+              alt="Clean driveway and walkway after washing"
+            >
+            <div class="social-body">
+              <div class="social-head">
+                <span class="social-platform">Instagram</span>
+                <span class="social-handle">@lllpoop</span>
+              </div>
+              <p class="social-caption">
+                Before-and-after driveway wash. The concrete looked tired, now it hits way cleaner from the street.
+              </p>
+              <a class="social-link" href="#">View post</a>
+            </div>
+          </article>
+
+          <article class="social-card">
+            <img
+              src="https://images.unsplash.com/photo-1517849845537-4d257902454a?auto=format&fit=crop&w=1200&q=80"
+              alt="Dog outside in a yard"
+            >
+            <div class="social-body">
+              <div class="social-head">
+                <span class="social-platform">TikTok</span>
+                <span class="social-handle">@lllpoop</span>
+              </div>
+              <p class="social-caption">
+                Quick yard cleanup clips, poop pickup routes, and satisfying outdoor cleanup content people actually watch.
+              </p>
+              <a class="social-link" href="#">Watch reel</a>
+            </div>
+          </article>
+
+          <article class="social-card">
+            <img
+              src="https://images.unsplash.com/photo-1482517967863-00e15c9b44be?auto=format&fit=crop&w=1200&q=80"
+              alt="Home with Christmas lights"
+            >
+            <div class="social-body">
+              <div class="social-head">
+                <span class="social-platform">Facebook</span>
+                <span class="social-handle">LLL POOP</span>
+              </div>
+              <p class="social-caption">
+                Holiday light installs, neighborhood jobs, and local customer updates in one easy section.
+              </p>
+              <a class="social-link" href="#">See update</a>
+            </div>
+          </article>
         </div>
       </section>
 
